@@ -16,13 +16,13 @@
 	<% if current_user.admin? %>
 		<div class="well well-small">
 			Tapan's circuit verification(Tapan's Node)<br/><br/>
-			<%= button_to('On', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=1', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-			<%= button_to('OFF', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=0', :method => "post", :remote => true, :disable_with => 'loading...') %>	
+			<%= button_to('#FF09 input', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=#FF09', :method => "post", :remote => true, :disable_with => 'loading...') %>	
+			<%= button_to('#FF01 input', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=#FF01', :method => "post", :remote => true, :disable_with => 'loading...') %>	
 		</div>
 		<div class="well well-small">	
 			Normal http verification by displaying data(Srijon's node)<br/>
-			<%= button_to('#FF09 input', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/30432d1112005b3b?value=#FF09', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-			<%= button_to('#FF01 input', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/30432d1112005b3b?value=#FF01', :method => "post", :remote => true, :disable_with => 'loading...') %>	
+			<%= button_to('On', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/30432d1112005b3b?value=1', :method => "post", :remote => true, :disable_with => 'loading...') %>	
+			<%= button_to('Off', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/30432d1112005b3b?value=0', :method => "post", :remote => true, :disable_with => 'loading...') %>	
 		</div>
 	<% else %>
 		Please wait for the model to allow you...
