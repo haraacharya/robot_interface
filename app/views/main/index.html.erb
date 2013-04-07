@@ -24,6 +24,18 @@
 			<%= button_to('On', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/30432d1112005b3b?value=1', :method => "post", :remote => true, :disable_with => 'loading...') %>	
 			<%= button_to('Off', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/30432d1112005b3b?value=0', :method => "post", :remote => true, :disable_with => 'loading...') %>	
 		</div>
+		<div class="well well-small">	
+			http verification by displaying data(Srijon's 2nd node with #FF09 & #FF01 as input)<br/>
+			url:https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab<br/>
+			<%= button_to('#FF09 input', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=#FF09', :method => "post", :remote => true, :disable_with => 'loading...') %>	
+			<%= button_to('#FF01 input', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=#FF01', :method => "post", :remote => true, :disable_with => 'loading...') %>	
+		</div>
+		<div class="well well-small">	
+			http verification by displaying data(Srijon's 2nd node with 0 & 1 as input)<br/>
+			url:https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab<br/>
+			<%= button_to('On', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=1', :method => "post", :remote => true, :disable_with => 'loading...') %>	
+			<%= button_to('Off', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=0', :method => "post", :remote => true, :disable_with => 'loading...') %>	
+		</div>
 	<% else %>
 		Please wait for the model to allow you...
 	<% end %>	
