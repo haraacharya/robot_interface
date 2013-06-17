@@ -7,4 +7,7 @@ CourseProject::Application.routes.draw do
   devise_for :users, :path => 'accounts'
 
   root to: "main#index"
+  match "info" => "main#info"
+
+  resources :userdetails
 end

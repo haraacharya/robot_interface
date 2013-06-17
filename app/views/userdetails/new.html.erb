@@ -1,0 +1,27 @@
+welcome... <%= current_user.email %><br/><br/>
+
+<div class="alert alert-info">	
+	Update your information...Don't worry it's safe with us.
+</div>	
+
+ <%= form_for @userdetail do |f| %>
+	<% if @userdetail.errors.any? %>
+		<div class="alert alert-error">
+			<%= @userdetail.errors.full_messages.join("<br/>").html_safe %>
+		</div>
+	<% end %>
+
+	<div class="row-fluid">	
+		firstname,lastname
+		<%= f.label :firstname, "FIRST NAME:" %>
+		<%= f.text_field :firstname, class: "span3", placeholder: "First Name" %><br/>
+		
+		<%= f.label :lastname, "LAST NAME:" %>
+		<%= f.text_field :lastname, class: "span3", placeholder: "Last Name" %><br/>
+	
+		<%= f.submit "Create your profile!", class: "btn btn-large btn-primary" %>
+	</div>	
+<% end %>
+
+
+  		

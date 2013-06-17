@@ -1,0 +1,12 @@
+Welcome to the robotics world of <%= @userdetail.firstname + " " + @userdetail.lastname%>. <br/>
+
+<% if false %>
+URL passcode: <%= params[:passcode] %> <br/>
+User generated passcode: <%= @userdetail.passcode %> <br/>
+
+<% end %>
+
+<br/><br/>
+
+<%= button_to('On', @userdetail.url + '?value=1', :method => "post", :remote => true, :disable_with => 'loading...') %>	
+<%= button_to('Off', @userdetail.url + '?value=0', :method => "post", :remote => true, :disable_with => 'loading...') %>	

@@ -2,43 +2,27 @@
 
 
 <% if !user_signed_in? %>
-	Please <%= link_to('Login', new_user_session_path) %> to be allowed to interact with a model.
+	Please <%= link_to('Login', new_user_session_path) %> to be able to access your device.
 <% else %>
-	
-	<% if false %>
-		DEMO BUTTON:
-		<span title="send-signal">	
-				<%= link_to ("https://api.electricimp.com/v1/edcb0ff950abe7e1/30432d1112005b3b"), :params["#FFxx"], method: :post  do %>	
-					<div class="btn btn-large disabled" disabled="disabled"><i class="icon-heart"></i></div>
-				<% end %>
-		</span>	<br/><br/>
-	<% end %>	
-	<% if current_user.admin? %>
-		<div class="well well-small">
-			Tapan's circuit verification(Tapan's Node)<br/><br/>
-			<%= button_to('#FF09 input', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=#FF09', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-			<%= button_to('#FF01 input', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=#FF01', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-		</div>
-		<div class="well well-small">	
-			Normal http verification by displaying data(Srijon's node)<br/>
-			<%= button_to('On', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/30432d1112005b3b?value=1', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-			<%= button_to('Off', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/30432d1112005b3b?value=0', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-		</div>
-		<div class="well well-small">	
-			http verification by displaying data(Srijon's 2nd node with #FF09 & #FF01 as input)<br/>
-			url:https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab<br/>
-			<%= button_to('#FF09 input', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=#FF09', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-			<%= button_to('#FF01 input', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=#FF01', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-		</div>
-		<div class="well well-small">	
-			http verification by displaying data(Srijon's 2nd node with 0 & 1 as input)<br/>
-			url:https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab<br/>
-			<%= button_to('On', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=1', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-			<%= button_to('Off', 'https://api.electricimp.com/v1/edcb0ff950abe7e1/3049cbfc815a4aab?value=0', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-		</div>
+	<% if @userdetail.url.nil? %>
+		You have not been alloted a device ID yet. Wait for your device ID to be added.
 	<% else %>
-		Please wait for the model to allow you...
-	<% end %>	
+		
+		Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s %> to test the URL. <br/>
+
+		Current Active device access url: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span4", :onclick => 'this.select();' %> (Click inside and Ctrl+C for copying the URL)
+	<% end %>
+
+	<h4>Regenerate the URL:</h4>
+
+
+	<%= form_for @userdetail, :method => :put do |f| %>
+ 		<%= f.submit "Regenerate URL" %>
+	<% end %>
+	<div class="well well-small">
+		<h2>Info:</h2>
+		Once the session with one client is over, use the above button to regenerate the url and share with a new client.
+	</div>	
 <% end %>	
 
 
