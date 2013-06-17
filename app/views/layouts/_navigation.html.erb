@@ -15,21 +15,20 @@
     <li><%= link_to "Home", root_path %></li>
     <% if user_signed_in? %>
       <li>
-      <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+        <%= link_to('Edit credentials', edit_user_registration_path) %>
+       </li>
+
+      <li>
+        <p class="navbar-text">Welcome <%= current_user.email %>, Not you?<%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></p>
       </li>
+
     <% else %>
       <li>
-      <%= link_to('Login', new_user_session_path)  %>
+        <%= link_to('Login', new_user_session_path)  %>
       </li>
-    <% end %>
-    <% if user_signed_in? %>
       <li>
-        <%= link_to('Edit login credentials', edit_user_registration_path) %>
-       </li> 
-    <% else %>
-        <li>
           <%= link_to('Sign up', new_user_registration_path)  %>
-        </li>
+      </li>
     <% end %>
   </ul>
 

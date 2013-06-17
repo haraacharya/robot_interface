@@ -1,5 +1,7 @@
 class UserdetailsController < ApplicationController
 
+	layout 'application', :only => [:new, :create, :update]
+
 	def new
 		@userdetail = Userdetail.new	
 	end
@@ -35,7 +37,8 @@ class UserdetailsController < ApplicationController
 		if params[:passcode].to_i != @userdetail.passcode.to_i
 			redirect_to info_path, notice: "You don't have access to it"	
 		else
-			render "show", notice: "click on buttons and experience the robotic interface"	
+			#render "show", notice: "click on buttons and experience the robotic interface"	
+			render :layout => "special"
 		end	
 
 	end

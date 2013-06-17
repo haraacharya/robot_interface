@@ -4,25 +4,26 @@
 <% if !user_signed_in? %>
 	Please <%= link_to('Login', new_user_session_path) %> to be able to access your device.
 <% else %>
-	<% if @userdetail.url.nil? %>
+	<% if @userdetail.url == "" %>
 		You have not been alloted a device ID yet. Wait for your device ID to be added.
 	<% else %>
 		
-		Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s %> to test the URL and then send it to your client <br/>
+		Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s %> to test the URL and then send it to your client <br/><br/>
 
-		Current Active device access url: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> (Click inside and Ctrl+C for copying the URL)
+		Current Active device access url: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> (Click inside and Ctrl+C for copying the URL) <br/><br/>
+	
+
+		<h4>Regenerate the URL:</h4>
+
+		<%= form_for @userdetail, :method => :put do |f| %>
+	 		<%= f.submit "Regenerate URL" %>
+		<% end %>
+		<div class="well well-small">
+			<h2>Info:</h2>
+			Once the session with one client is over, use the above button to <strong>regenerate</strong> the url and share with a new client.
+		</div>	
+
 	<% end %>
-
-	<h4>Regenerate the URL:</h4>
-
-
-	<%= form_for @userdetail, :method => :put do |f| %>
- 		<%= f.submit "Regenerate URL" %>
-	<% end %>
-	<div class="well well-small">
-		<h2>Info:</h2>
-		Once the session with one client is over, use the above button to regenerate the url and share with a new client.
-	</div>	
 <% end %>	
 
 

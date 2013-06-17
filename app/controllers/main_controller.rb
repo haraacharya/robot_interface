@@ -13,7 +13,11 @@ class MainController < ApplicationController
 	end
 
 	def info
+		render :layout => "static"
+	end
 
+	def faq
+		render :layout => "static"
 	end
 
 end

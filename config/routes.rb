@@ -8,6 +8,7 @@ CourseProject::Application.routes.draw do
 
   root to: "main#index"
   match "info" => "main#info"
+  match "faq" => "main#faq"
 
   resources :userdetails
 end
