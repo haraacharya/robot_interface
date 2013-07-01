@@ -10,7 +10,9 @@
 		
 		Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s %> to test the URL and then send it to your client <br/><br/>
 
-		Current Active device access url: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> (Click inside and Ctrl+C for copying the URL) <br/><br/>
+		<div class="well">Your User ID: <%= @userdetail.user.id %><br/>
+		Your passcode: <%= @userdetail.passcode %><br/>
+		Active url: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> <small>(Click inside and  <cite title="Ctrl+C">Ctrl+C</cite> to copy the URL)</small></div>
 	
 
 		<h4>Regenerate the URL:</h4>

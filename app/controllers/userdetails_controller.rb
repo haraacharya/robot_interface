@@ -33,13 +33,16 @@ class UserdetailsController < ApplicationController
 	def show
 		@userdetail = Userdetail.find(params[:id])
 		@user = @userdetail.user
-		
-		if params[:passcode].to_i != @userdetail.passcode.to_i
-			redirect_to info_path, notice: "You don't have access to it"	
+
+		if(params.has_key?(:one))
+			if params[:passcode].to_i != @userdetail.passcode.to_i
+				redirect_to info_path, notice: "You don't have access to it"	
+			else
+				render :layout => "special"
+			end
 		else
-			#render "show", notice: "click on buttons and experience the robotic interface"	
 			render :layout => "special"
-		end	
+		end		
 
 	end
 

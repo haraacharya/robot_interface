@@ -10,5 +10,7 @@ CourseProject::Application.routes.draw do
   match "info" => "main#info"
   match "faq" => "main#faq"
 
+  match "client" => "main#client"
   resources :userdetails
+  resources :main, only: [:new]
 end

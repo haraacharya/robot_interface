@@ -1,0 +1,13 @@
+welcome...to the world of sex toys<br/><br/>
+
+<div class="alert alert-info">	
+	Put in the passcode and model ID shared by the model.
+</div>	
+
+<%= form_tag(controller: "main", action: "client", method: "get") do %>
+  <%= label_tag(:user_id, "Enter Profile ID of the Model:") %>
+  <%= text_field_tag(:user_id) %>
+  <%= label_tag(:passcode, "Enter the passcode:") %>
+  <%= text_field_tag(:passcode) %><br/>
+  <%= submit_tag("Enter the edildo world...")%>
+<% end %>
