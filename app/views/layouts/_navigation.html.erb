@@ -12,9 +12,9 @@
 <!-- .nav, .navbar-search, .navbar-form, etc -->
   <ul class="nav">
 
-    <li><%= link_to "Home", root_path %></li>
+    <li <%= active(root_path) %> ><%= link_to "Home", root_path %></li>
     <% if user_signed_in? %>
-      <li>
+      <li <%= active(edit_user_registration_path) %>>
         <%= link_to('Edit credentials', edit_user_registration_path) %>
        </li>
 
@@ -23,13 +23,13 @@
       </li>
 
     <% else %>
-      <li>
+      <li <%= active(new_user_session_path)%> >
         <%= link_to('Presenter Login', new_user_session_path)  %>
       </li>
-      <li>
+      <li <%= active(new_user_registration_path)%> >
           <%= link_to('Presenter Sign up', new_user_registration_path)  %>
       </li>
-      <li>
+      <li <%= active(new_main_path)%> >
           <%= link_to('Client Login', new_main_path)  %>
       </li>
     <% end %>

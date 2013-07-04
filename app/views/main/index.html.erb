@@ -1,10 +1,10 @@
-<h2>Welcome to the world of online the sex toy</h2>
+<h2>Welcome to the world of online the sex toy</h2><br/><br/>
 
 
 <% if !user_signed_in? %>
 	<div class="row-fluid">
-		<div class="span6 button_text"><%= link_to('<button class="btn btn-large btn-block" type="button">Presenter Login</button>'.html_safe, new_user_session_path) %></div>
-		<div class="span6 button_text"><%= link_to('<button class="btn btn-large btn-block btn-primary" type="button">Client Login</button>'.html_safe, new_main_path) %></div>
+		<div class="span4 button_text"><%= link_to('<button class="btn btn-large btn-block" type="button">Presenter Login</button>'.html_safe, new_user_session_path) %></div>
+		<div class="span4 offset4 button_text"><%= link_to('<button class="btn btn-large btn-block btn-primary" type="button">Client Login</button>'.html_safe, new_main_path) %></div>
 	</div>	
 
 <% else %>
