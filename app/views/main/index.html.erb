@@ -2,7 +2,11 @@
 
 
 <% if !user_signed_in? %>
-	Please <%= link_to('Login', new_user_session_path) %> to be able to access your device.
+	<div class="row-fluid">
+		<div class="span6 button_text"><%= link_to('<button class="btn btn-large btn-block" type="button">Presenter Login</button>'.html_safe, new_user_session_path) %></div>
+		<div class="span6 button_text"><%= link_to('<button class="btn btn-large btn-block btn-primary" type="button">Client Login</button>'.html_safe, new_main_path) %></div>
+	</div>	
+
 <% else %>
 	<% if @userdetail.url == "" %>
 		Please give us some time to update your device url.
