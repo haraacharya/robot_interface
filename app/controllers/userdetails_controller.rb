@@ -34,6 +34,7 @@ class UserdetailsController < ApplicationController
 		@userdetail = Userdetail.find(params[:id])
 		@user = @userdetail.user
 
+		
 		if(params.has_key?(:one))
 			if params[:passcode].to_i != @userdetail.passcode.to_i
 				redirect_to info_path, notice: "You don't have access to it"	
@@ -44,6 +45,14 @@ class UserdetailsController < ApplicationController
 			render :layout => "special"
 		end		
 
+	end
+
+	def index
+		@userdetails = Userdetail.all
+		respond_to do |format|
+    		format.html
+    		format.json { render json: @userdetails }
+  		end
 	end
 
 end
