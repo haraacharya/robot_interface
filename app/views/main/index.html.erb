@@ -1,32 +1,44 @@
-<h2>Welcome to the world of online the sex toy</h2><br/><br/>
-
+<h2>Welcome to the world of online sex toys</h2>
 
 <% if !user_signed_in? %>
 	<div class="row-fluid">
 		<div class="span4 button_text"><%= link_to('<button class="btn btn-large btn-block" type="button">Presenter Login</button>'.html_safe, new_user_session_path) %></div>
-		<div class="span4 offset4 button_text"><%= link_to('<button class="btn btn-large btn-block btn-primary" type="button">Client Login</button>'.html_safe, new_main_path) %></div>
+		<div class="span4 offset4 button_text"><%= link_to('<button class="btn btn-large btn-block btn-primary" type="button">Client Access</button>'.html_safe, new_main_path) %></div>
 	</div>	
 
 <% else %>
 	<% if @userdetail.url == "" %>
 		Please give us some time to update your device url.
 	<% else %>
+		<div class="well well-small">
+			<h2>Sharing direct link to client:</h2>
+			Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s %> to test the link before you send it to your client.<br/>
+			Share the active link below with your client. <br/>
+			Active link: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> <small>(Click inside and  <cite title="Ctrl+C">Ctrl+C</cite> to copy the link)</small>
+		</div>
 		
-		Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s %> to test the URL and then send it to your client <br/><br/>
+		<div class="text-center">OR</div>
 
-		<div class="well">Your User ID: <%= @userdetail.user.id %><br/>
-		Your passcode: <%= @userdetail.passcode %><br/>
-		Active url: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> <small>(Click inside and  <cite title="Ctrl+C">Ctrl+C</cite> to copy the URL)</small></div>
+		<div class="well well-small">
+			<h2>Sharing details for client access:</h2>
+			Your Profile ID : <%= url_field_tag 'Profile ID', nil , :value => @userdetail.user.id, :class => "span1", :onclick => 'this.select();' %><br/>
+			Your passcode: <%= url_field_tag 'Passcode', nil , :value => @userdetail.passcode, :class => "span1", :onclick => 'this.select();' %><br/>
+			If you can not share the link above...<br/>
+			Then ask the client to visit <strong><cite title="www.edildo.me">www.edildo.me</cite></strong> and click <strong>Client Access</strong>
+		</div>
 	
+		<div class="well well-small">
+			<h2>Regenerate the Link:</h2>
+			To ensure privacy of your device, please click on <strong>regenerate</strong> button after you have completed a hot session with your sweetheart. <br/>
 
-		<h4>Regenerate the URL:</h4>
-
-		<%= form_for @userdetail, :method => :put do |f| %>
-	 		<%= f.submit "Regenerate URL" %>
-		<% end %>
+			<%= form_for @userdetail, :method => :put do |f| %>
+		 		<%= f.submit "Regenerate Link", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+			
 		<div class="well well-small">
 			<h2>Info:</h2>
-			To ensure privacy of your device, please click on <strong>regenerate</strong> button after you have completed a hot session with your sweetheart.
+			It is important to click the <strong>Regenerate</strong> button every-time a session is completed. This ensures that the last client can't access your device anymore.
 		</div>	
 
 	<% end %>

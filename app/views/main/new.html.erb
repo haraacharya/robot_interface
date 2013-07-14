@@ -1,7 +1,8 @@
 welcome...to the world of sex toys<br/><br/>
 
 <div class="alert alert-info">	
-	Put in the passcode and model ID shared by the model.
+	Please ask the model to share her profile ID and passcode from her screen.<br/>
+	Still confused...watch this demonstration video.
 </div>	
 
 <%= form_tag(controller: "main", action: "client", method: "get") do %>
@@ -9,5 +10,5 @@ welcome...to the world of sex toys<br/><br/>
   <%= text_field_tag(:user_id) %>
   <%= label_tag(:passcode, "Enter the passcode:") %>
   <%= text_field_tag(:passcode) %><br/>
-  <%= submit_tag "Enter the edildo world...", class: 'btn btn-large btn-primary'%>
+  <%= submit_tag "Enter the edildo world", class: 'btn btn-large btn-primary'%>
 <% end %>

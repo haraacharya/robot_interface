@@ -1,11 +1,11 @@
 Welcome to the world of <strong><%= @userdetail.firstname + " " + @userdetail.lastname%></strong>. <br/>
+Play around with the buttons below to change the speed of <%= @userdetail.firstname %>"'s" dildo.<br/><br/>
 
-<% if false %>
-	URL passcode: <%= params[:passcode] %> <br/>
-	User generated passcode: <%= @userdetail.passcode %> <br/>
-<% end %>
-
-<br/><br/>
 
 <%= button_to('On', @userdetail.url + '?value=1', :method => "post", :remote => true, :disable_with => 'loading...') %>	
-<%= button_to('Off', @userdetail.url + '?value=0', :method => "post", :remote => true, :disable_with => 'loading...') %>	
+
+<%= button_to('Speed2', @userdetail.url + '?value=2', :method => "post", :remote => true, :disable_with => 'loading...') %>
+<%= button_to('Speed3', @userdetail.url + '?value=3', :method => "post", :remote => true, :disable_with => 'loading...') %>
+<%= button_to('Speed4', @userdetail.url + '?value=4', :method => "post", :remote => true, :disable_with => 'loading...') %>
+<%= button_to('Speed5', @userdetail.url + '?value=5', :method => "post", :remote => true, :disable_with => 'loading...') %>
+<%= button_to('Switch Off', @userdetail.url + '?value=0', :method => "post", :remote => true, :disable_with => 'loading...') %>

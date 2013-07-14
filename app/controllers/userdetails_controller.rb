@@ -1,5 +1,5 @@
 class UserdetailsController < ApplicationController
-
+	require 'rest_client'
 	layout 'application', :only => [:new, :create, :update]
 
 	def new
@@ -47,12 +47,17 @@ class UserdetailsController < ApplicationController
 
 	end
 
-	def index
+	def index		
 		@userdetails = Userdetail.all
 		respond_to do |format|
     		format.html
     		format.json { render json: @userdetails }
   		end
 	end
+
+	def button_action
+		@userdetail = Userdetail.find(params[:id])
+    	response = RestClient.post(@userdetail.url , {'value' => 1})	
+    end
 
 end
