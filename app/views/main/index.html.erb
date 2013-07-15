@@ -11,7 +11,7 @@
 		Please give us some time to update your device url.
 	<% else %>
 		<div class="well well-small">
-			<h2>Sharing direct link to client:</h2>
+			<h3>Sharing direct link to client:</h3>
 			Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s %> to test the link before you send it to your client.<br/>
 			Share the active link below with your client. <br/>
 			Active link: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> <small>(Click inside and  <cite title="Ctrl+C">Ctrl+C</cite> to copy the link)</small>
@@ -20,15 +20,17 @@
 		<div class="text-center">OR</div>
 
 		<div class="well well-small">
-			<h2>Sharing details for client access:</h2>
+			<h3>Sharing details for client access:</h3>
+			If you can not share the link above...<br/>
+			Then ask the client to visit <strong><cite title="www.edildo.me">www.edildo.me</cite></strong> and click <strong>Client Access</strong><br/>
+			(Share the below details to your client)<br/>
 			Your Profile ID : <%= url_field_tag 'Profile ID', nil , :value => @userdetail.user.id, :class => "span1", :onclick => 'this.select();' %><br/>
 			Your passcode: <%= url_field_tag 'Passcode', nil , :value => @userdetail.passcode, :class => "span1", :onclick => 'this.select();' %><br/>
-			If you can not share the link above...<br/>
-			Then ask the client to visit <strong><cite title="www.edildo.me">www.edildo.me</cite></strong> and click <strong>Client Access</strong>
+			
 		</div>
 	
 		<div class="well well-small">
-			<h2>Regenerate the Link:</h2>
+			<h3>Regenerate the Link:</h3>
 			To ensure privacy of your device, please click on <strong>regenerate</strong> button after you have completed a hot session with your sweetheart. <br/>
 
 			<%= form_for @userdetail, :method => :put do |f| %>
@@ -37,7 +39,7 @@
 		</div>
 			
 		<div class="well well-small">
-			<h2>Info:</h2>
+			<h3>Info:</h3>
 			It is important to click the <strong>Regenerate</strong> button every-time a session is completed. This ensures that the last client can't access your device anymore.
 		</div>	
 
