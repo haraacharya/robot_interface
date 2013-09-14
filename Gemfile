@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
+gem 'therubyracer'
 gem 'rails', '3.2.3'
 gem 'bootstrap-sass'
 gem 'rest-client'
