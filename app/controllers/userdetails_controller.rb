@@ -56,8 +56,9 @@ class UserdetailsController < ApplicationController
 	end
 
 	def button_action
-		@userdetail = Userdetail.find(params[:id])
-    	response = RestClient.post(@userdetail.url , {'value' => 1})	
+		@userdetail = Userdetail.find(params[:userdetail_id])
+		@value = params[:value]
+    	response = RestClient.post(@userdetail.url , {'value' => @value})
     end
 
 end
