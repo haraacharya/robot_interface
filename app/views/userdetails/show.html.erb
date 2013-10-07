@@ -5,18 +5,18 @@
 	Welcome to the world of <strong><%= @userdetail.firstname + " " + @userdetail.lastname%></strong>. <br/>
 	Play around with the buttons below to change the speed of <%= @userdetail.firstname %>'s dildo.<br/><br/>
 
-	<%= button_to "Switch-On", userdetail_button_action_path(@userdetail, :value => "1"), :method => "post", :remote => true, :disable_with => 'loading...' %>
+	<%= button_to "Switch-On", userdetail_button_action_path(@userdetail, :value => "1"), :method => "post", :remote => true, :disable_with => 'loading...', :class => "btn-large btn-primary btn-success" %>
 
-	<%= button_to "Speed-2", userdetail_button_action_path(@userdetail, :value => "2"), :method => "post", :remote => true, :disable_with => 'loading...' %>
+	<%= button_to "Speed-2", userdetail_button_action_path(@userdetail, :value => "2"), :method => "post", :remote => true, :disable_with => 'loading...', :class => "btn btn-info" %>
 
-	<%= button_to "Speed-3", userdetail_button_action_path(@userdetail, :value => "3"), :method => "post", :remote => true, :disable_with => 'loading...' %>
+	<%= button_to "Speed-3", userdetail_button_action_path(@userdetail, :value => "3"), :method => "post", :remote => true, :disable_with => 'loading...', :class => "btn btn-info" %>
 
-	<%= button_to "Speed-4", userdetail_button_action_path(@userdetail, :value => "4"), :method => "post", :remote => true, :disable_with => 'loading...' %>
+	<%= button_to "Speed-4", userdetail_button_action_path(@userdetail, :value => "4"), :method => "post", :remote => true, :disable_with => 'loading...', :class => "btn btn-info" %>
 
-	<%= button_to "Speed-5", userdetail_button_action_path(@userdetail, :value => "5"), :method => "post", :remote => true, :disable_with => 'loading...' %>
+	<%= button_to "Speed-5", userdetail_button_action_path(@userdetail, :value => "5"), :method => "post", :remote => true, :disable_with => 'loading...', :class => "btn btn-info" %>
 
-	<%= button_to "Speed-6", userdetail_button_action_path(@userdetail, :value => "6"), :method => "post", :remote => true, :disable_with => 'loading...' %>
+	<%= button_to "Speed-6", userdetail_button_action_path(@userdetail, :value => "6"), :method => "post", :remote => true, :disable_with => 'loading...', :class => "btn btn-info" %>
 
-	<%= button_to "Switch-Off", userdetail_button_action_path(@userdetail, :value => "0"), :method => "post", :remote => true, :disable_with => 'loading...' %>
+	<%= button_to "Switch-Off", userdetail_button_action_path(@userdetail, :value => "0"), :method => "post", :remote => true, :disable_with => 'loading...', :class => "btn btn-small btn-danger" %>
 
 <% end %>
