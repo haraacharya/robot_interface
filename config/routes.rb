@@ -23,6 +23,7 @@ CourseProject::Application.routes.draw do
   
   resources :userdetails do
     post "button_action"
+    post "send_mail"
   end  
   resources :main, only: [:new]
 end

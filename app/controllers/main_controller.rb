@@ -7,7 +7,7 @@ class MainController < ApplicationController
 				@userdetail = Userdetail.new
 				redirect_to new_userdetail_path
 			else
-				@userdetail = current_user.userdetail	
+				@userdetail = current_user.userdetail
 			end
 		end
 	end
@@ -25,17 +25,16 @@ class MainController < ApplicationController
 	end
 
 	def client
-		passcode = params[:passcode]
-		
-		if !User.find_by_id(params[:user_id]).nil?
+		if (!User.find_by_id(params[:user_id]).nil? && params[:passcode].length > 0)
 			@user = User.find(params[:user_id])
-			if @user.userdetail.passcode.to_i == passcode.to_i
-				redirect_to userdetail_path(@user.userdetail)
-			else
-				redirect_to info_path, notice: "You don't have access to it"
-			end	
+			#@passcode = params[:passcode]
+			#if @user.userdetail.passcode.to_i == passcode.to_i
+				redirect_to userdetail_path(@user.userdetail, :passcode => params[:passcode])
+			#else
+			#	redirect_to info_path, notice: "You don't have access to it client1"
+			#end	
 		else
-			redirect_to info_path, notice: "You don't have access to it"
+			redirect_to info_path, notice: "Please enter correct profile ID / Password."
 		end	
 		
 	end

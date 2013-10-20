@@ -33,17 +33,20 @@ class UserdetailsController < ApplicationController
 	def show
 		@userdetail = Userdetail.find(params[:id])
 		@user = @userdetail.user
-
 		
-		if(params.has_key?(:one))
+		#if params.has_key?(:one)
 			if params[:passcode].to_i != @userdetail.passcode.to_i
-				redirect_to info_path, notice: "You don't have access to it"	
+				redirect_to info_path, notice: "Sorry, you don't have access to it."	
 			else
 				render :layout => "special"
 			end
-		else
-			render :layout => "special"
-		end		
+		# else
+		# 	if params[:passcode].to_i != @userdetail.passcode.to_i
+		# 		redirect_to info_path, notice: "You don't have access to it from client"
+		# 	else	
+		# 		render :layout => "special"
+		# 	end	
+		#end		
 
 	end
 
@@ -60,5 +63,15 @@ class UserdetailsController < ApplicationController
 		@value = params[:value]
     	response = RestClient.post(@userdetail.url , {'value' => @value})
     end
+
+    def send_mail
+    	email_id = params[:email]
+		@userdetail = Userdetail.find(params[:userdetail_id])
+		#@user_url = userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s
+
+    	UserMailer.send_dildoaccess(email_id, @userdetail).deliver
+    	redirect_to root_path, notice: "Email has been sent"	
+    end
+
 
 end

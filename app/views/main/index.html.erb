@@ -12,8 +12,8 @@
 		Please give us some time to update your device url.
 	<% else %>
 		<div class="well well-small">
-			<h3>Sharing direct link to client:</h3>
-			Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s %> to test the link before you send it to your client.<br/>
+			<h3>Sharing direct link to client:  <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Send link via email</a></h3>
+			Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, target: "_blank" %> to test the link before you send it to your client.<br/>
 			Share the active link below with your client. <br/>
 			Active link: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> <small>(Click inside and  <cite title="Ctrl+C">Ctrl+C</cite> to copy the link)</small>
 		</div>
@@ -32,20 +32,40 @@
 	
 		<div class="well well-small">
 			<h3>Regenerate the Link:</h3>
-			To ensure privacy of your device, please click on <strong>regenerate</strong> button after you have completed a hot session with your sweetheart. <br/>
+			To ensure privacy of your device, please click on <strong>regenerate</strong> button after you have completed a hot session with your sweetheart. <br/><br/>
 
 			<%= form_for @userdetail, :method => :put do |f| %>
-		 		<%= f.submit "Regenerate Link", class: "btn btn-large btn-primary" %>
+		 		<%= f.submit "Regenerate Link", class: "btn btn-large btn-primary btn-danger" %>
 			<% end %>
 		</div>
 			
 		<div class="well well-small">
 			<h3>Info:</h3>
 			It is important to click the <strong>Regenerate</strong> button every-time a session is completed. This ensures that the last client can't access your device anymore.
-		</div>	
+		</div>
+
+		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  		<div class="modal-header">
+	    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    		<h3 id="myModalLabel">Type in the email you want to send your device link to:</h3>
+	  		</div>
+	  		
+	  		<%= form_tag userdetail_send_mail_path(@userdetail) do %>
+	  			<div class="modal-body">
+		    		<p><%= label_tag(:email, "Enter Email ID of the Customer:") %>
+	  					<%= text_field_tag(:email) %></p>
+		  		</div>
+		  		<div class="modal-footer">
+		  			<button class="btn btn-large btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+		      		<%= submit_tag "Send", class: 'btn btn-large btn-primary'%>
+		  		</div>
+	  		<% end %>
+		</div>
 
 	<% end %>
 <% end %>	
+
+
 
 
 
