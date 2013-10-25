@@ -12,12 +12,12 @@
 		Please give us some time to update your device url.
 	<% else %>
 		<div class="well well-small">
-			<h3>Sharing direct link to client:  <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Send link via email</a></h3>
+			<h3>Sharing link to client:</h3> <!--<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Send link via email</a>
 
 			<div id="myModal" class="modal hide fade active" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		    <div class="modal-header">
 		      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		      <h3 id="myModalLabel">Type the email:</h3>
+		      <h3 id="myModalLabel">Type Email:</h3>
 		    </div>
 		    
 		    <%= form_tag userdetail_send_mail_path(@userdetail) do %>
@@ -30,28 +30,28 @@
 		          <%= submit_tag "Send", class: 'btn btn-large btn-primary'%>
 		      </div>
 		    <% end %>
-		</div>
+		</div>-->
 
-<!--<div class="accordion" id="accordion2">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <button class="accordion-toggle btn-primary" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-        Send link via email
-      </button>
-    </div>
-    <div id="collapseOne" class="accordion-body collapse">
-      <div class="accordion-inner">
-        <%= form_tag userdetail_send_mail_path(@userdetail) do %>
-		      
-		        <%= label_tag(:email, "Enter Email ID of the Customer:") %>
-		        <%= text_field_tag(:email) %><br/>
-		        <%= submit_tag "Send", class: 'btn btn-primary'%>
-		      
-		 <% end %>
-      </div>
-    </div>
-  </div>
-</div>-->
+			<div class="accordion" id="accordion2">
+			  <div class="accordion-group">
+			    <!--<div class="accordion-heading">-->
+			      <button class="accordion-toggle btn btn-primary" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+			        Send link via email <i class="icon-chevron-down"></i>
+			      </button>
+			    <!--</div>-->
+			    <div id="collapseOne" class="accordion-body collapse">
+			      <div class="accordion-inner">
+			        <%= form_tag userdetail_send_mail_path(@userdetail) do %>
+					      
+					        <%= label_tag(:email, "Enter Email ID of the Customer:") %>
+					        <%= text_field_tag(:email) %><br/>
+					        <%= submit_tag "Send", class: 'btn btn-primary'%>
+					      
+					 <% end %>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 
 
 
@@ -61,7 +61,7 @@
 			Active link: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> <small>(Click inside and  <cite title="Ctrl+C">Ctrl+C</cite> to copy the link)</small>
 		</div>
 		
-		<div class="text-center">OR</div>
+		<!--<div class="text-center">OR</div>
 
 		<div class="well well-small">
 			<h3>Sharing details for client access:</h3>
@@ -71,7 +71,7 @@
 			Your Profile ID : <%= url_field_tag 'Profile ID', nil , :value => @userdetail.user.id, :class => "span1", :onclick => 'this.select();' %><br/>
 			Your passcode: <%= url_field_tag 'Passcode', nil , :value => @userdetail.passcode, :class => "span1", :onclick => 'this.select();' %><br/>
 			
-		</div>
+		</div>-->
 	
 		<div class="well well-small">
 			<h3>Regenerate the Link:</h3>
