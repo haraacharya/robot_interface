@@ -1,10 +1,10 @@
 <% if @userdetail.url.nil? or @userdetail.url == "" %>
 	A devece is not been allocated yet. Contact admin to allocate a  device to you.
 <% else %>
-
-	Welcome to the world of <strong><%= @userdetail.firstname + " " + @userdetail.lastname%></strong>. <br/>
-	Play around with the buttons below to change the speed of <%= @userdetail.firstname %>'s dildo.<br/><br/>
-
+	<div class="well well-small">
+		Welcome to the world of <strong><%= @userdetail.firstname + " " + @userdetail.lastname%></strong>. <br/>
+		Play around with the buttons below to change the speed of <%= @userdetail.firstname %>'s dildo.
+	</div>
 	<div class="well well-small">
 
 		<%= button_to "Switch-On", userdetail_button_action_path(@userdetail, :value => "1"), :method => "post", :remote => true, :disable_with => 'loading...', :class => "btn btn-large btn-primary btn-success" %>

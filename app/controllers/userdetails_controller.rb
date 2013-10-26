@@ -70,9 +70,12 @@ class UserdetailsController < ApplicationController
     	email_id = params[:email]
 		@userdetail = Userdetail.find(params[:userdetail_id])
 		#@user_url = userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s
-
-    	UserMailer.send_dildoaccess(email_id, @userdetail).deliver
-    	redirect_to root_path, notice: "Email has been sent"	
+		if email_id != ""
+    		UserMailer.send_dildoaccess(email_id, @userdetail).deliver
+    		redirect_to root_path, notice: "Email has been sent"	
+    	else	
+    		redirect_to root_path, :flash => { :error => "Please type correct email!" }
+    	end		
     end
 
 
