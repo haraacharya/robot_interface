@@ -19,26 +19,26 @@
        </li>
 
       <li>
-        <p class="navbar-text">Welcome <%= current_user.email %>, Not you?<%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></p>
+        <p class="navbar-text">Welcome <%= current_user.email %>, Not you? <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></p>
       </li>
 
     <% else %>
       <li <%= active(new_user_session_path)%> >
-        <%= link_to('Model Login', new_user_session_path)  %>
+        <%= link_to('Customer Login', new_user_session_path)  %>
       </li>
       <li <%= active(new_user_registration_path)%> >
-          <%= link_to('Model Sign up', new_user_registration_path)  %>
+          <%= link_to('Customer Sign up', new_user_registration_path)  %>
       </li>
-      <li <%= active(new_main_path)%> >
+      <!--<li <%= active(new_main_path)%> >
           <%= link_to('Customer Access', new_main_path)  %>
-      </li>
+      </li>-->
     <% end %>
   </ul>
 
-  <ul class="nav pull-right">
+  <!--<ul class="nav pull-right">
     <li <%= active(new_user_session_path)%> >
         <%= link_to('Power User', new_user_session_path)  %>
     </li>
-  </ul>
+  </ul>-->
 
 </div>

@@ -1,10 +1,10 @@
-<div class="well well-large"><h2>Welcome to the world of online sex toys</h2></div>
+<div class="well well-large"><h2>Welcome to Samantha's teledildonics site</h2></div>
 
 <% if !user_signed_in? %>
 	<br/><br/>
 	<div class="row-fluid">
-		<div class="span4 button_text"><%= link_to('<button class="btn btn-large btn-block" type="button">Model Login</button>'.html_safe, new_user_session_path) %></div>
-		<div class="span4 offset4 button_text"><%= link_to('<button class="btn btn-large btn-block btn-primary" type="button">Customer Access</button>'.html_safe, new_main_path) %></div>
+		<div class="span4 button_text"><%= link_to('<button class="btn btn-large btn-block" type="button">Customer Login</button>'.html_safe, new_user_session_path) %></div>
+		<!--<div class="span4 offset4 button_text"><%= link_to('<button class="btn btn-large btn-block btn-primary" type="button">Customer Access</button>'.html_safe, new_main_path) %></div>-->
 	</div>	
 
 <% else %>
@@ -12,7 +12,7 @@
 		Please give us some time to update your device url.
 	<% else %>
 		<div class="well well-small">
-			<h3>Sharing link to client:</h3> <!--<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Send link via email</a>
+			<h3>Sharing link with your partner:</h3> <!--<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Send link via email</a>
 
 			<div id="myModal" class="modal hide fade active" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		    <div class="modal-header">
@@ -32,18 +32,20 @@
 		    <% end %>
 		</div>-->
 
+			Active link:<br/> <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> <small>(Click inside and  <cite title="Ctrl+C">Ctrl+C</cite> to copy the link)</small>
+			<br/>	
 			<div class="accordion" id="accordion2">
 			  <div class="accordion-group">
 			    <!--<div class="accordion-heading">-->
 			      <button class="accordion-toggle btn btn-primary" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-			        Send link via email <i class="icon-chevron-down"></i>
+			        Send above link by email: <i class="icon-chevron-down"></i>
 			      </button>
 			    <!--</div>-->
 			    <div id="collapseOne" class="accordion-body collapse">
 			      <div class="accordion-inner">
 			        <%= form_tag userdetail_send_mail_path(@userdetail) do %>
 					      
-					        <%= label_tag(:email, "Enter Email ID of the Customer:") %>
+					        <%= label_tag(:email, "Enter Email ID of your partner:") %>
 					        <%= text_field_tag(:email) %><br/>
 					        <%= submit_tag "Send", class: 'btn btn-primary'%>
 					      
@@ -52,13 +54,7 @@
 			    </div>
 			  </div>
 			</div>
-
-
-
-
-			Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, target: "_blank" %> to test the link before you send it to your client.<br/>
-			Share the active link below with your client. <br/>
-			Active link: <%= url_field_tag 'Active URL', nil , :value => userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, :class => "span6", :onclick => 'this.select();' %> <small>(Click inside and  <cite title="Ctrl+C">Ctrl+C</cite> to copy the link)</small>
+			Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, target: "_blank" %> to test the active link.
 		</div>
 		
 		<!--<div class="text-center">OR</div>
@@ -75,7 +71,7 @@
 	
 		<div class="well well-small">
 			<h3>Regenerate the Link:</h3>
-			To ensure privacy of your device, please click on <strong>regenerate</strong> button after you have completed a hot session with your sweetheart. <br/><br/>
+			To ensure privacy of your device, please click on <strong>regenerate</strong> button after you have completed a hot session with your partner. <br/><br/>
 
 			<%= form_for @userdetail, :method => :put do |f| %>
 		 		<%= f.submit "Regenerate Link", class: "btn btn-large btn-primary btn-danger" %>
@@ -84,7 +80,7 @@
 			
 		<div class="well well-small">
 			<h3>Info:</h3>
-			It is important to click the <strong>Regenerate</strong> button every-time a session is completed. This ensures that the last client can't access your device anymore.
+			It is important to click the <strong>Regenerate Link</strong> button everytime a hot session is completed. This ensures that your partner is not accessing your device anymore.
 		</div>
 
 	<% end %>

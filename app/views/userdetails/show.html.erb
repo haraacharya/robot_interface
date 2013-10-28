@@ -1,9 +1,12 @@
 <% if @userdetail.url.nil? or @userdetail.url == "" %>
-	A devece is not been allocated yet. Contact admin to allocate a  device to you.
+	<div class="well well-small">
+		A device is not been allocated yet. Contact admin to allocate a device to you.
+	</div>	
 <% else %>
 	<div class="well well-small">
-		Welcome to the world of <strong><%= @userdetail.firstname + " " + @userdetail.lastname%></strong>. <br/>
-		Play around with the buttons below to change the speed of <%= @userdetail.firstname %>'s dildo.
+		<!--Welcome to the world of <strong><%= @userdetail.firstname + " " + @userdetail.lastname%></strong>. <br/>-->
+		Welcome to teledildonics access page!<br/>
+		Play around with the buttons below to change the speed of <%= @userdetail.firstname %>'s edildo.
 	</div>
 	<div class="well well-small">
 
