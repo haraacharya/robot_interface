@@ -11,6 +11,14 @@
 	<% if @userdetail.url == "" %>
 		Please give us some time to update your device url.
 	<% else %>
+		
+		<div class="well well-small test-link">
+			<%= link_to userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, target: "_blank"  do%>	
+				<span class="btn btn-custom"><i class="icon-hand-right"></i> ***CLICK HERE TO TEST YOUR LINK!*** <i class="icon-hand-left"></i></span>
+			<% end %>	
+		</div>
+			
+
 		<div class="well well-small">
 			<h3>Sharing link with your partner:</h3> <!--<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Send link via email</a>
 
@@ -54,7 +62,7 @@
 			    </div>
 			  </div>
 			</div>
-			Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, target: "_blank" %> to test the active link.
+			<!--Click <%= link_to "here",  userdetail_url(@userdetail) + "?passcode=" + @userdetail.passcode.to_s, target: "_blank" %> to test the active link.-->
 		</div>
 		
 		<!--<div class="text-center">OR</div>

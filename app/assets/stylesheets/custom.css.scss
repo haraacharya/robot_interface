@@ -11,3 +11,27 @@
 .button_text a{
 	text-decoration: none;
 }
+
+.test-link{
+	align: center;
+	text-decoration: none
+	
+}
+
+
+.btn-custom {
+  background-color: hsl(341, 100%, 24%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff5188", endColorstr="#7a0026");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ff5188), to(#7a0026));
+  background-image: -moz-linear-gradient(top, #ff5188, #7a0026);
+  background-image: -ms-linear-gradient(top, #ff5188, #7a0026);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff5188), color-stop(100%, #7a0026));
+  background-image: -webkit-linear-gradient(top, #ff5188, #7a0026);
+  background-image: -o-linear-gradient(top, #ff5188, #7a0026);
+  background-image: linear-gradient(#ff5188, #7a0026);
+  border-color: #7a0026 #7a0026 hsl(341, 100%, 13.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.69);
+  -webkit-font-smoothing: antialiased;
+}
